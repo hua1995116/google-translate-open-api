@@ -7,6 +7,7 @@ A free and unlimited API for Google Translate（support single text and Multi-se
     <a href="https://npmcharts.com/compare/google-translate-open-api?minimal=true" rel="nofollow"><img src="https://img.shields.io/npm/dm/google-translate-open-api.svg" style="max-width:100%;"></a>
     <a href="https://www.npmjs.com/package/google-translate-open-api" rel="nofollow"><img src="https://img.shields.io/npm/v/google-translate-open-api.svg" style="max-width:100%;"></a>
     <a href="https://www.npmjs.com/package/google-translate-open-api" rel="nofollow"><img src="https://img.shields.io/npm/l/google-translate-open-api.svg?style=flat" style="max-width:100%;"></a>
+    <a href="https://www.patreon.com/qiufeng"><img src="https://badgen.net/badge/support%20me/donate/ff00ff" alt="Support me"/></a>
 </p>
 
 # Feature
@@ -113,7 +114,7 @@ The language in which the text should be translated. Must be one of the codes/na
 ### tld
 Type: `string` 'com' | 'cn'
 
-cn is for China, com for others.
+`cn` is for China, `com` for others.
 
 
 # Related
