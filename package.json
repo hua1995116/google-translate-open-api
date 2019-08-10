@@ -1,0 +1,64 @@
+{
+  "name": "google-translate-open-api",
+  "version": "0.1.0",
+  "description": "A free and unlimited API for Google Translate（contains single and multiple） 💵🚫",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "publish": "tsc && npm run update",
+    "build": "tsc",
+    "update": "auto-vers -t",
+    "test": "nyc mocha test/*.ts",
+    "cover": "nyc npm test && nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hua1995116/google-translate-open-api.git"
+  },
+  "keywords": [
+    "google",
+    "translate",
+    "multiple",
+    "language"
+  ],
+  "author": "hua1995116 <qiufneghyf@gmail.com> (https://github.com/hua1995116)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hua1995116/google-translate-open-api/issues"
+  },
+  "homepage": "https://github.com/hua1995116/google-translate-open-api#readme",
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.6.3",
+    "auto-vers": "^1.0.3",
+    "chai": "^4.2.0",
+    "codecov": "^3.5.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
+  "dependencies": {
+    "@vitalets/google-translate-token": "^1.1.0",
+    "axios": "^0.19.0"
+  }
+}
