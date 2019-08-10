@@ -4,7 +4,9 @@ import {arrayStringify} from './util';
 
 function handletranslate(data, extra): Promise<any> {
   return translateToken
-    .get(data.join(''), extra)
+    .get(data.join(''), {
+      tld: extra.tld || 'com'
+    })
     .then(res => {
       const query = {
         anno: 3,

@@ -1,5 +1,5 @@
 # google-translate-open-api
-A free and unlimited API for Google Translate（support single text and Multi-segment text） 💵🚫
+一个免费无限制的谷歌翻译api（支持单段文本以及多段文本同时翻译） 💵🚫
 
 <p align="center">
     <a href="https://travis-ci.org/hua1995116/google-translate-open-api"><img src="https://travis-ci.org/hua1995116/google-translate-open-api.svg?branch=master" /></a>
@@ -17,12 +17,11 @@ A free and unlimited API for Google Translate（support single text and Multi-se
 
 # Feature
 
-> Multi-segment text support
-> Auto language detection
-> Spelling correction
-> Language correction
-> Fast and reliable – it uses the same servers that [translate.google.com](https://translate.google.com/) uses
-
+> 多段文本支持
+> 自动识别语言
+> 拼写纠正
+> 语言修正
+> 快速可靠 - 它使用和 [translate.google.com](https://translate.google.com/) 相同的服务器
 
 # Install
 
@@ -32,24 +31,24 @@ npm install --save google-translate-open-api
 
 # Why this repo ？
 
-when I have the following sentence. ( from [How Are Function Components Different from Classes?](https://overreacted.io/how-are-function-components-different-from-classes/))
+当我有以下一段文本时候 ( 来自 [How Are Function Components Different from Classes?](https://overreacted.io/how-are-function-components-different-from-classes/))
 
 ```
 Maybe you’ve heard one of them is better for performance. Which one? Many of such benchmarks are flawed so I’d be careful drawing conclusions from them.
 ```
-I don't want to translate all the text first and I'd like to translate segment by segment. Especially in an article, the whole translation may not work well.
+我并不想将上述的文本一次性翻译，我更喜欢一句一句翻译。尤其是对于一篇文章翻译时，效果可能没有逐段翻译的效果更佳
 
 ![1565448193440.jpg](https://s3.qiufengh.com/blog/1565448193440.jpg)
 
 ![1565448223736.jpg](https://s3.qiufengh.com/blog/1565448223736.jpg)
 
-In the existing library, if I want to translate multi-segment text, I have to request multiple times.(like [google-translate-api](https://github.com/matheuss/google-translate-api))
+当然用现在已经有的库（像 [google-translate-api](https://github.com/matheuss/google-translate-api)），依然能够实现上述的功能，但是在翻译多段文本时候，需要请求api多次，这严重造成请求的浪费与等待漫长的时间。
 
-So I have to use the new api to implement, so the `google-translate-open-api` is born.
+因此我需要用一个新的 api 来实现上述功能。`google-translate-open-api`就这样诞生了。
 
 # Usage
 
-Single segment
+单段文本
 ```javascript
 import translate from 'google-translate-open-api';
 const result = await translate(`I'm fine.`, {
@@ -61,7 +60,7 @@ const data = result.data[0];
 // 我很好。
 ```
 
-Multi-segment text
+多段文本
 ```javascript
 import translate from 'google-translate-open-api';
 
@@ -73,9 +72,9 @@ const data = result.data[0];
 // [[[["我很好。"]],null,"en"],[[["我可以。"]],null,"en"]]
 ```
 
-> Note: Multi-segment text result is different from single sentence. You need extra attention.
+> 注意: 多段文本的返回值和单段文本的返回值不同，你需要额外的注意
 
-Multi-segment text contains mylti-sentence.
+多段文本中含有多个句子
 
 ```javascript
 import translate, { parseMultiple } from 'google-translate-open-api';
@@ -100,24 +99,24 @@ const parseData = parseMultiple(data);
 
 Type: `string`
 
-The text to be translated
+要翻译的文本
 
 ### options
 
 Type: object
 
-**from？**
+**from**
 Type: `string` Default: auto
 
-The text language. Must be auto or one of the codes/names (not case sensitive) contained in src/languages.ts
+语言来源. 必须是从 src/languages.ts 中的一种，默认为 auto类型。
 
 **to**
 Type: `string` Default: en
 
-The language in which the text should be translated. Must be one of the codes/names (not case sensitive) contained in src/languages.ts.
+将要翻译的语言， 必须是从 src/languages.ts 中的一种。
 
-**tld**
-Type: `string` 'com' | 'cn' <Default 'com'>
+### tld
+Type: `string` 'com' | 'cn'
 
 `cn` is for China, `com` for others.
 
