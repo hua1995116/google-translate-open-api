@@ -1,11 +1,11 @@
 {
   "name": "google-translate-open-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A free and unlimited API for Google Translate（contains single and multiple） 💵🚫",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "publish": "tsc && npm run update",
+    "pub": "tsc && npm run update",
     "build": "tsc",
     "update": "auto-vers -t",
     "test": "nyc mocha test/*.ts",
@@ -22,7 +22,7 @@
     "language"
   ],
   "author": "hua1995116 <qiufneghyf@gmail.com> (https://github.com/hua1995116)",
-  "license": "MIT",
+  "license": "Apache License",
   "bugs": {
     "url": "https://github.com/hua1995116/google-translate-open-api/issues"
   },
