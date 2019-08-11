@@ -1,4 +1,4 @@
-const translateToken = require('@vitalets/google-translate-token');
+const translateToken = require('./token');
 import axios, { AxiosRequestConfig } from 'axios';
 import { arrayStringify } from './util';
 import { Options } from './index';
