@@ -41,7 +41,7 @@ Maybe you’ve heard one of them is better for performance. Which one? Many of s
 
 ![1565448193440.jpg](https://s3.qiufengh.com/blog/1565448193440.jpg)
 
-![1565448223736.jpg](https://s3.qiufengh.com/blog/1565448223736.jpg)
+![1565516309452.jpg](https://s3.qiufengh.com/blog/1565516309452.jpg)
 
 当然用现在已经有的库（像 [google-translate-api](https://github.com/matheuss/google-translate-api)），依然能够实现上述的功能，但是在翻译多段文本时候，需要请求api多次，这严重造成请求的浪费与等待漫长的时间。
 
@@ -122,13 +122,14 @@ Type: `string` 'com' | 'cn'
 `cn` is for China, `com` for others.
 
 
-# Related
+# 相关库
 - [vitalets/google-translate-token](https://github.com/vitalets/google-translate-token)
 - [google-translate-api](https://github.com/matheuss/google-translate-api)
 
-# Inspiration
+# 灵感来源
 
 - [google translate](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=zh-CN)
+- [translate-md-viewer](https://github.com/hua1995116/translate-md-viewer)
 
 # License
 

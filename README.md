@@ -41,7 +41,7 @@ I don't want to translate all the text first and I'd like to translate segment b
 
 ![1565448193440.jpg](https://s3.qiufengh.com/blog/1565448193440.jpg)
 
-![1565448223736.jpg](https://s3.qiufengh.com/blog/1565448223736.jpg)
+![1565516309452.jpg](https://s3.qiufengh.com/blog/1565516309452.jpg)
 
 In the existing library, if I want to translate multi-segment text, I have to request multiple times.(like [google-translate-api](https://github.com/matheuss/google-translate-api))
 
@@ -125,6 +125,7 @@ Type: `string` 'com' | 'cn' <Default 'com'>
 # Related
 - [vitalets/google-translate-token](https://github.com/vitalets/google-translate-token)
 - [google-translate-api](https://github.com/matheuss/google-translate-api)
+- [translate-md-viewer](https://github.com/hua1995116/translate-md-viewer)
 
 # Inspiration
 
