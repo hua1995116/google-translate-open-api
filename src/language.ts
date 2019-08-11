@@ -6,7 +6,7 @@
  * See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
  */
 
-var langs = {
+const langs = {
   Automatic: "auto",
   Afrikaans: "af",
   Albanian: "sq",
@@ -113,5 +113,35 @@ var langs = {
   Yoruba: "yo",
   Zulu: "zu"
 };
+
+export function isSupport(language: string) {
+  return Boolean(getCode(language));
+}
+
+export function getCode(language: string) {
+  if(!language) {
+    return false;
+  }
+  if(langs[language]) {
+    return langs[language];
+  }
+  const keys = Object.keys(langs).filter(item => {
+    const lowerLan = language.toLowerCase();
+    return langs[item] === lowerLan;
+  });
+  if(keys[0]) {
+    return langs[keys[0]];
+  }
+
+  return false;
+}
+
+export function getAllLanguage() {
+  return Object.keys(langs);
+}
+
+export function getAllCode() {
+  return Object.keys(langs).map(item => (langs[item]));
+}
 
 export default langs;

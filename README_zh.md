@@ -17,11 +17,12 @@
 
 # Feature
 
-> 多段文本支持
-> 自动识别语言
-> 拼写纠正
-> 语言修正
-> 快速可靠 - 它使用和 [translate.google.com](https://translate.google.com/) 相同的服务器
+- 多段文本支持
+- 自动识别语言
+- 拼写纠正
+- 语言修正
+- 快速可靠 - 它使用和 [translate.google.com](https://translate.google.com/) 相同的服务器
+- 免费无限制 (translate.google.com使用令牌来授权请求。 如果你不是Google，则表示你没有此令牌，并且必须每100万字符的文字支付20美元。)
 
 # Install
 

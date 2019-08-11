@@ -1,8 +1,28 @@
 const translateToken = require('@vitalets/google-translate-token');
-import axios, {AxiosRequestConfig} from 'axios';
-import {arrayStringify} from './util';
+import axios, { AxiosRequestConfig } from 'axios';
+import { arrayStringify } from './util';
+import { Options } from './index';
+import { isSupport, getCode } from './language';
 
-function handletranslate(data, extra): Promise<any> {
+function handletranslate(data: string[], extra: Options): Promise<any> {
+  let e: any;
+  if(extra.from) {
+    if(!isSupport(extra.from)) {
+      e = new Error();
+      e.language = extra.from;
+    }
+  }
+  if(!isSupport(extra.to)) {
+    e = new Error();
+    e.language = extra.to;
+  }
+  if (e) {
+    e.code = 400;
+    e.message = 'The language \'' + e.language + '\' is not supported';
+    return new Promise(function (_, reject) {
+        reject(e);
+    });
+  }
   return translateToken
     .get(data.join(''), {
       tld: extra.tld || 'com'

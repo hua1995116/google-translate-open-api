@@ -2,6 +2,27 @@ import { expect } from 'chai';
 import translate, { parseMultiple } from '../src/index';
 
 describe('google-translate-open-api', () => {
+  it('not support from', async() => {
+    try {
+      const result = await translate(`I'm fine.`, {
+        tld: "cn",
+        from: "xxx",
+        to: "zh-CN",
+      });
+    } catch(e) {
+      expect(e.code).to.equal(400);
+    }
+  })
+  it('not support to', async() => {
+    try {
+      const result = await translate(`I'm fine.`, {
+        tld: "cn",
+        to: "xxx",
+      });
+    } catch(e) {
+      expect(e.code).to.equal(400);
+    }
+  })
   it('translate single', async () => {
     const result = await translate(`I'm fine.`, {
       tld: "cn",

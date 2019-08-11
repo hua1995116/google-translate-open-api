@@ -5,7 +5,7 @@
  * The languages that Google Translate supports (as of 5/15/16) alongside with their ISO 639-1 codes
  * See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
  */
-declare var langs: {
+declare const langs: {
     Automatic: string;
     Afrikaans: string;
     Albanian: string;
@@ -112,4 +112,8 @@ declare var langs: {
     Yoruba: string;
     Zulu: string;
 };
+export declare function isSupport(language: string): boolean;
+export declare function getCode(language: string): any;
+export declare function getAllLanguage(): string[];
+export declare function getAllCode(): any[];
 export default langs;
