@@ -44,17 +44,30 @@ function handletranslate(data: string[], extra: Options): Promise<any> {
         tk: res.value,
         mode: 1
       };
+
       const options: AxiosRequestConfig = {
         method: "POST",
         headers: {
           "content-type": "application/x-www-form-urlencoded",
           "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
-          "Accept": "application/json, text/plain, */*"
+          "Accept": "application/json, text/plain, */*",
+          'X-Requested-With': 'XMLHttpRequest'
         },
         data: arrayStringify(data),
-        url: `https://translate.googleapis.com/translate_a/t`,
-        params: query
+        url: '/translate_a/t',
+        baseURL: `https://translate.googleapis.com`,
+        params: query,
+        proxy: extra.proxy || false,
+        ...(extra.config)
       };
+      let browersUrl = 'https://cors-anywhere.herokuapp.com/';
+      if (extra.browersUrl) {
+        browersUrl = extra.browersUrl;
+      }
+      if(extra.browers) {
+        options.baseURL = browersUrl + options.baseURL;
+      }
+
       return axios(options);
     })
 }

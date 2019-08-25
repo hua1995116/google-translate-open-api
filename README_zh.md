@@ -92,6 +92,44 @@ const parseData = parseMultiple(data);
 // ["我很好。你呢？","我可以。"]
 ```
 
+代理
+
+proxy-config [https://github.com/axios/axios#request-config](https://github.com/axios/axios#request-config)
+```javascript
+const result = await translate([`I'm fine. And you?`,`I'm ok.`], {
+  tld: "cn",
+  to: "zh-CN",
+  proxy: {
+    host: '127.0.0.1',
+    port: 9000,
+    auth: {
+      username: 'mikeymike',
+      password: 'rapunz3l'
+    }
+  }
+});
+```
+
+浏览器
+
+```javascript
+const result = await translate([`I'm fine. And you?`,`I'm ok.`], {
+  tld: "cn",
+  to: "zh-CN",
+  browers: true
+});
+
+const data = result.data[0];
+
+// 我很好。
+```
+
+commonJS
+
+```javascript
+const translate = require('google-translate-open-api').default;
+```
+
 # API
 
 ## translate(text, options)
@@ -119,7 +157,27 @@ Type: `string` Default: en
 ### tld
 Type: `string` 'com' | 'cn'
 
-`cn` is for China, `com` for others.
+中国用 `cn` , 其他国家用 `com` .
+
+**proxy**
+Type: `AxiosProxyConfig`
+
+为请求代理
+
+**config**
+Type: `object`
+
+axios 的配置 [axios](https://github.com/axios/axios)
+
+**browers**
+Type: `boolean`
+
+通过 [cors-anywhere](https://github.com/Rob--W/cors-anywhere/) 来实现浏览器的支持 (这是一个公共服务，不能保证100%的稳定)
+
+**browersUrl**
+Type: `string`
+
+用户自定义代理链接
 
 
 # 相关库

@@ -92,6 +92,44 @@ const parseData = parseMultiple(data);
 // ["我很好。你呢？","我可以。"]
 ```
 
+Proxy
+
+proxy-config [https://github.com/axios/axios#request-config](https://github.com/axios/axios#request-config)
+```javascript
+const result = await translate([`I'm fine. And you?`,`I'm ok.`], {
+  tld: "cn",
+  to: "zh-CN",
+  proxy: {
+    host: '127.0.0.1',
+    port: 9000,
+    auth: {
+      username: 'mikeymike',
+      password: 'rapunz3l'
+    }
+  }
+});
+```
+
+Browers
+
+```javascript
+const result = await translate([`I'm fine. And you?`,`I'm ok.`], {
+  tld: "cn",
+  to: "zh-CN",
+  browers: true
+});
+
+const data = result.data[0];
+
+// 我很好。
+```
+
+For commonJS
+
+```javascript
+const translate = require('google-translate-open-api').default;
+```
+
 # API
 
 ## translate(text, options)
@@ -120,6 +158,26 @@ The language in which the text should be translated. Must be one of the codes/na
 Type: `string` 'com' | 'cn' <Default 'com'>
 
 `cn` is for China, `com` for others.
+
+**proxy**
+Type: `AxiosProxyConfig`
+
+proxy for request.
+
+**config**
+Type: `object`
+
+config for [axios](https://github.com/axios/axios)
+
+**browers**
+Type: `boolean`
+
+support browers via [cors-anywhere](https://github.com/Rob--W/cors-anywhere/) (This is a public service, not necessarily stable)
+
+**browersUrl**
+Type: `string`
+
+custom browers proxy url
 
 
 # Related
