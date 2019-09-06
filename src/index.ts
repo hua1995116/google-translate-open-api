@@ -1,7 +1,6 @@
 import translateService from './translate';
 import { parseMultiple } from './util';
 import { isSupport, getAllLanguage, getAllCode } from './language';
-import { AxiosProxyConfig } from 'axios';
 
 export type Tld = 'cn' | 'com'
 
@@ -9,7 +8,7 @@ export interface Options {
   tld?: Tld;
   from?: string,
   to: string,
-  proxy?: AxiosProxyConfig,
+  proxy?: { host: string, port: number },
   config?: Object,
   browers?: boolean,
   browersUrl?: string
