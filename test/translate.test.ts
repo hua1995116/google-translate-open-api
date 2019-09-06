@@ -63,7 +63,7 @@ describe('google-translate-open-api', () => {
     expect(data).to.equal(compare);
   });
 
-  describe('proxy', () => {
+  it('proxy', () => {
     let proxy
 
     before(async () => {
