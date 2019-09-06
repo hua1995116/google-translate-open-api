@@ -1,6 +1,6 @@
 import { parseMultiple } from './util';
 import { isSupport, getAllLanguage, getAllCode } from './language';
-import { AxiosProxyConfig } from 'axios';
+import { AxiosProxyConfig } from 'axios-https-proxy-fix';
 export declare type Tld = 'cn' | 'com';
 export interface Options {
     tld?: Tld;

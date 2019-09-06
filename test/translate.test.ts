@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import translate, { parseMultiple } from '../src/index';
+import { createProxy } from './help'
 
 describe('google-translate-open-api', () => {
   it('not support from', async() => {
@@ -60,5 +61,33 @@ describe('google-translate-open-api', () => {
     const data = result.data[0];
     const compare = '我很好。';
     expect(data).to.equal(compare);
+  });
+
+  describe('proxy', () => {
+    let proxy
+
+    before(async () => {
+      proxy = createProxy();
+      await proxy.start();
+    });
+
+    after(function () {
+      proxy.stop();
+    });
+
+    it('translate proxy', async () => {
+      const result = await translate(`I'm fine.`, {
+        tld: "cn",
+        to: "zh-CN",
+        proxy: {
+          host: proxy.host,
+          port: proxy.port
+        }
+      });
+
+      const data = result.data[0];
+      const compare = '我很好。';
+      expect(data).to.equal(compare);
+    });
   });
 })

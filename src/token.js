@@ -7,7 +7,7 @@
  * for support brower
  */
 
-var axios = require('axios');
+var axios = require('axios-https-proxy-fix');
 
 /* eslint-disable */
 // BEGIN
@@ -80,7 +80,10 @@ function updateTKK(opts) {
         if (Number(window.TKK.split('.')[0]) === now) {
             resolve();
         } else {
-            axios('https://translate.google.' + opts.tld).then(function (res) {
+            axios({
+                url: 'https://translate.google.' + opts.tld,
+                proxy: opts.proxy,
+            }).then(function (res) {
                 var matches = res.data.match(/tkk:\s?'(.+?)'/i);
 
                 if (matches) {
