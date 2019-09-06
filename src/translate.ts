@@ -1,5 +1,5 @@
 const translateToken = require('./token');
-import axios, { AxiosRequestConfig } from 'axios';
+import axios, { AxiosRequestConfig } from 'axios-https-proxy-fix';
 import { arrayStringify } from './util';
 import { Options } from './index';
 import { isSupport, getCode } from './language';
@@ -25,7 +25,8 @@ function handletranslate(data: string[], extra: Options): Promise<any> {
   }
   return translateToken
     .get(data.join(''), {
-      tld: extra.tld || 'com'
+      tld: extra.tld || 'com',
+      proxy: extra.proxy || false,
     })
     .then(res => {
       const query = {

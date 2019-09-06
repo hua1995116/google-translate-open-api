@@ -1,7 +1,7 @@
 import translateService from './translate';
 import { parseMultiple } from './util';
 import { isSupport, getAllLanguage, getAllCode } from './language';
-import { AxiosProxyConfig } from 'axios';
+import { AxiosProxyConfig } from 'axios-https-proxy-fix';
 
 export type Tld = 'cn' | 'com'
 
