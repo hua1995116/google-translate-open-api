@@ -179,6 +179,11 @@ Type: `string`
 
 custom browers proxy url
 
+**format**
+Type: `string`  `<text|html>`
+
+When use single translate, default use `text` (but we can set it to `html`) and use batch translate, default and only use `html`.
+
 
 # Related
 - [vitalets/google-translate-token](https://github.com/vitalets/google-translate-token)

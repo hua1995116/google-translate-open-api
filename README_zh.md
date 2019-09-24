@@ -179,6 +179,12 @@ Type: `string`
 
 用户自定义代理链接
 
+**format**
+Type: `string`  `<text|html>`
+
+When use single translate, default use `text` (but use can set it to `html`) and use batch translate, default and only use `html`.
+当使用单文本处理的时候，默认使用 `text` 去获取文本，保留原格式。（你也可以用`html`来获取默认的文本）,使用批处理的时候默认且只能使用 `html` 格式
+
 
 # 相关库
 - [vitalets/google-translate-token](https://github.com/vitalets/google-translate-token)

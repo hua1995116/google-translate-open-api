@@ -12,7 +12,8 @@ export interface Options {
   proxy?: AxiosProxyConfig,
   config?: Object,
   browers?: boolean,
-  browersUrl?: string
+  browersUrl?: string,
+  format?: string,
 }
 
 function translate(value: string | string[], options: Options): Promise<any> {
@@ -20,8 +21,10 @@ function translate(value: string | string[], options: Options): Promise<any> {
   let text: string[];
   if(typeof value === 'string') {
     text = [value];
+    !options.format && (options.format = 'text');
   } else {
-    text = value
+    text = value;
+    !options.format && (options.format = 'html');
   }
 
   return translateService(text, options);

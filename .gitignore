@@ -62,3 +62,5 @@ typings/
 dist
 .vscode
 .nyc_output
+used.md
+test.ts

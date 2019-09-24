@@ -32,7 +32,7 @@ function handletranslate(data: string[], extra: Options): Promise<any> {
       const query = {
         anno: 3,
         client: "webapp",
-        format: 'html',
+        format: extra.format,
         v: 1.0,
         key: null,
         logld: "vTE_20190506_00",

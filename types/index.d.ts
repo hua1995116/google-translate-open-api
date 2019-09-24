@@ -10,6 +10,7 @@ export interface Options {
     config?: Object;
     browers?: boolean;
     browersUrl?: string;
+    format?: string;
 }
 declare function translate(value: string | string[], options: Options): Promise<any>;
 export { parseMultiple, isSupport, getAllLanguage, getAllCode };

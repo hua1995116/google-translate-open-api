@@ -52,6 +52,29 @@ describe('google-translate-open-api', () => {
     const compare = '["我很好。你呢？","我可以。"]';
     expect(JSON.stringify(parseData)).to.equal(compare);
   });
+
+  it('translate format text', async () => {
+    const result = await translate(`I'm fine. And you?\nI'm fine. And you?`, {
+      tld: "cn",
+      to: "zh-CN",
+      format: "text",
+    });
+    const data = result.data[0];
+    const compare = '我很好。你呢？\n我很好。你呢？';
+    expect(data).to.equal(compare);
+  });
+
+  it('translate format html', async () => {
+    const result = await translate(`I'm fine. And you?\nI'm fine. And you?`, {
+      tld: "cn",
+      to: "zh-CN",
+      format: "html",
+    });
+    const data = result.data[0];
+    const compare = '我很好。你呢？我很好。你呢？';
+    expect(data).to.equal(compare);
+  });
+
   it('translate browers', async () => {
     const result = await translate(`I'm fine.`, {
       tld: "cn",
@@ -62,32 +85,32 @@ describe('google-translate-open-api', () => {
     const compare = '我很好。';
     expect(data).to.equal(compare);
   });
-
-  it('proxy', () => {
-    let proxy
-
-    before(async () => {
-      proxy = createProxy();
-      await proxy.start();
-    });
-
-    after(function () {
-      proxy.stop();
-    });
-
-    it('translate proxy', async () => {
-      const result = await translate(`I'm fine.`, {
-        tld: "cn",
-        to: "zh-CN",
-        proxy: {
-          host: proxy.host,
-          port: proxy.port
-        }
-      });
-
-      const data = result.data[0];
-      const compare = '我很好。';
-      expect(data).to.equal(compare);
-    });
-  });
 })
+
+describe('proxy', () => {
+  let proxy
+
+  before(async () => {
+    proxy = createProxy();
+    await proxy.start();
+  });
+
+  after(function () {
+    proxy.stop();
+  });
+
+  it('translate proxy', async () => {
+    const result = await translate(`I'm fine.`, {
+      tld: "cn",
+      to: "zh-CN",
+      proxy: {
+        host: proxy.host,
+        port: proxy.port
+      }
+    });
+
+    const data = result.data[0];
+    const compare = '我很好。';
+    expect(data).to.equal(compare);
+  });
+});
