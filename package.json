@@ -1,6 +1,6 @@
 {
   "name": "google-translate-open-api",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "A free and unlimited API for Google Translate（contains single and multiple） 💵🚫",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
