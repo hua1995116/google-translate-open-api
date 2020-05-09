@@ -105,6 +105,7 @@ const langs = {
   Turkish: "tr",
   Ukrainian: "uk",
   Urdu: "ur",
+  Uyghur: "ug",
   Uzbek: "uz",
   Vietnamese: "vi",
   Welsh: "cy",
