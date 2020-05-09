@@ -104,6 +104,7 @@ declare const langs: {
     Turkish: string;
     Ukrainian: string;
     Urdu: string;
+    Uyghur: string;
     Uzbek: string;
     Vietnamese: string;
     Welsh: string;
