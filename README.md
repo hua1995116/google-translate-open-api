@@ -130,6 +130,10 @@ For commonJS
 const translate = require('google-translate-open-api').default;
 ```
 
+# Multi-Terminal Example
+
+https://github.com/hua1995116/google-translate-open-api-demo
+
 # API
 
 ## translate(text, options)
