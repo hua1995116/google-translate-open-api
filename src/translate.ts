@@ -23,9 +23,10 @@ function handletranslate(data: string[], extra: Options): Promise<any> {
         reject(e);
     });
   }
+  const tld = extra.tld || 'com';
   return translateToken
     .get(data.join(''), {
-      tld: extra.tld || 'com',
+      tld,
       proxy: extra.proxy || false,
     })
     .then(res => {
@@ -61,7 +62,7 @@ function handletranslate(data: string[], extra: Options): Promise<any> {
         headers,
         data: arrayStringify(data),
         url: '/translate_a/t',
-        baseURL: `https://translate.googleapis.com`,
+        baseURL: `https://translate.google.${tld}`,
         params: query,
         proxy: extra.proxy || false,
         ...(extra.config)
