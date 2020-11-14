@@ -81,7 +81,7 @@ const langs = {
   Persian: "fa",
   Polish: "pl",
   Portuguese: "pt",
-  Punjabi: "ma",
+  Punjabi: "pa",
   Romanian: "ro",
   Russian: "ru",
   Samoan: "sm",
