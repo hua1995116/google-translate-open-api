@@ -16,6 +16,7 @@ export interface Options {
   format?: string,
   isUserAgent?: boolean,
   userAgent?: string,
+  client?: string
 }
 
 function translate(value: string | string[], options: Options): Promise<any> {
